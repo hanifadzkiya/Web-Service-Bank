@@ -9,10 +9,10 @@ set -e
 
 # ** Alternative approach
 # sudo rm -rf ~/.ssh
-sudo mkdir -p ~/.ssh
-sudo chmod 777 ~/.ssh
-sudo echo -e "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCCE0STvqg2CdcoRcbkbmZvWlfoyhPMxMdx08ugZqegLEsWI8qUN8fnaTBvj4vJh3Paee/fgfd3vXlYhm6e6gBT8ftuWcExgNVdOkrWxxh64vOFIPCvJyp6yQdjjS6DfWzDTBrUjpUb+cr56LMYtrUEGknlukZHT3qJRy+QoNYA2876+/ngkXO05QcJcVBVQ1F6Ul+QBs5dZNn5EmsTdtsL02GYF/oU3NNxb2CL1Bqqd4wI+ebPJJ59X97a28It1b72HBOdwjAEfddYlIYb3l5rmete/CtZIRNnQFNL+mLD6g/GG4h20pkH8xEnnA2+DJMYNrmeA7z9+T88Ldoc5yRN" > ~/.ssh/id_rsa
-sudo chmod 600 ~/.ssh/id_rsa
+#sudo mkdir -p ~/.ssh
+#sudo chmod 777 ~/.ssh
+#sudo echo -e "" > ~/.ssh/id_rsa
+#sudo chmod 600 ~/.ssh/id_rsa
 # ** End of alternative approach
 
 # disable the host key checking.
