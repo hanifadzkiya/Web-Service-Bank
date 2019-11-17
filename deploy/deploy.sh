@@ -9,8 +9,7 @@ set -e
 
 # ** Alternative approach
 sudo mkdir ~/.ssh
-sudo mkdir ~/.ssh/id_rsa
-sudo chmod 777 ~/.ssh/id_rsa
+sudo chmod 777 ~/.ssh
 sudo echo -e "$PRIVATE_KEY" > ~/.ssh/id_rsa
 sudo chmod 600 ~/.ssh/id_rsa
 # ** End of alternative approach
