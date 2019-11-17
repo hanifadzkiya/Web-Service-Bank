@@ -1,4 +1,4 @@
-var mysql = require('mysql');
+var mysql = require("mysql");
 
 var con = mysql.createConnection({
     host: "database-1.cxqar33fjxpj.ap-southeast-1.rds.amazonaws.com",
@@ -7,8 +7,11 @@ var con = mysql.createConnection({
     database: "wstransaksi"
 });
 
-con.connect(function (err){
-    if(err) throw err;
+con.connect(function (err) {
+    "use strict";
+    if (err) {
+        throw err;
+    }
 });
 
 module.exports = con;
