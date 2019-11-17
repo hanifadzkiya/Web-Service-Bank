@@ -3,6 +3,8 @@
 # any future command that fails will exit the script
 set -e
 
+sudo su
+
 # Delete the old repo
 rm -rf /home/ubuntu/ws-transaksi/
 
