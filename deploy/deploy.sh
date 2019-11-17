@@ -44,5 +44,5 @@ DEPLOY_SERVERS=$DEPLOY_SERVERS
 #for server in "${ALL_SERVERS[@]}"
 #do
 sudo echo "deploying to 52.220.86.67"
-sudo ssh ubuntu@52.220.86.67 -v -i ./aws-key/engimaInstance.pem 'bash' < ./deploy/updateAndRestart.sh
+sudo ssh -v -i ./aws-key/engimaInstance.pem ubuntu@52.220.86.67 'bash' < ./deploy/updateAndRestart.sh
 #done
