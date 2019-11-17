@@ -23,12 +23,15 @@ cd /home/ubuntu/ws-transaksi/
 
 # stop the previous pm2
 pm2 kill
-#npm remove pm2 -g
-
+sudo su
+npm remove pm2 -g
+sudo su ubuntu
 
 #pm2 needs to be installed globally as we would be deleting the repo folder.
 # this needs to be done only once as a setup script.
-#npm install pm2 -g
+sudo su
+npm install pm2 -g
+sudo su ubuntu
 # starting pm2 daemon
 pm2 status
 
@@ -37,4 +40,4 @@ echo "Running npm install"
 npm install
 
 #Restart the node server
-pm2 start
+pm2 start bin/www
