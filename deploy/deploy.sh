@@ -8,10 +8,10 @@ set -e
 #echo "$PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
 
 # ** Alternative approach
-mkdir /root/.ssh/id_rsa
-chmod 777 /root/.ssh/id_rsa
-echo -e "$PRIVATE_KEY" > /root/.ssh/id_rsa
-chmod 600 /root/.ssh/id_rsa
+sudo mkdir /root/.ssh/id_rsa
+sudo chmod 777 /root/.ssh/id_rsa
+sudo echo -e "$PRIVATE_KEY" > /root/.ssh/id_rsa
+sudo chmod 600 /root/.ssh/id_rsa
 # ** End of alternative approach
 
 # disable the host key checking.
