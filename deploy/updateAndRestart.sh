@@ -8,6 +8,7 @@ rm -rf /home/ubuntu/ws-transaksi/
 
 # clone the repo again
 git clone git@gitlab.informatika.org:if3110-2019-02-k03-18/ws-transaksi.git
+echo "akuganteng123"
 
 #source the nvm file. In an non
 #If you are not using nvm, add the actual path like
