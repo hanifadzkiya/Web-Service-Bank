@@ -1,7 +1,14 @@
-image: node
+# Node docker image on which this would be run
+image: node:8.9.0
+
+#This command is run before actual stages start running
+before_script:
+  - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )'
+  - npm install
 
 stages:
   - lint
+  - deploy
 
 eslint:
   stage: lint
@@ -16,3 +23,10 @@ eslint:
       eslint-plugin-prettier
     # Run eslint
     - node_modules/eslint/bin/eslint.js .
+
+deployToAWS:
+  only:
+    - master
+  stage: deploy
+  script:
+    - bash deploy/deploy.sh
