@@ -16,7 +16,16 @@ sudo chmod 600 ~/.ssh/id_rsa
 # ** End of alternative approach
 
 # disable the host key checking.
-sudo ./deploy/disableHostKeyChecking.sh
+# sudo ./deploy/disableHostKeyChecking.sh
+
+Host *
+  StrictHostKeyChecking no
+
+# any future command that fails will exit the script
+sudo set -e
+# mkdir -p ~/.ssh
+sudo touch ~/.ssh/config
+sudo echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
 
 # we have already setup the DEPLOYER_SERVER in our gitlab settings which is a
 # comma seperated values of ip addresses.
