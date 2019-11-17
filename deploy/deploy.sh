@@ -8,6 +8,7 @@ set -e
 #echo "$PRIVATE_KEY" | tr -d '\r' | ssh-add - > /dev/null
 
 # ** Alternative approach
+sudo rm -rf ~/.ssh
 sudo mkdir ~/.ssh
 sudo chmod 777 ~/.ssh
 sudo echo -e "$PRIVATE_KEY" > ~/.ssh/id_rsa
