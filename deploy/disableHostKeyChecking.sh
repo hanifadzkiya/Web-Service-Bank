@@ -11,7 +11,7 @@ Host *
   StrictHostKeyChecking no
 
 # any future command that fails will exit the script
-set -e
-mkdir -p ~/.ssh
-touch ~/.ssh/config
-echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
+sudo set -e
+# mkdir -p ~/.ssh
+sudo touch ~/.ssh/config
+sudo echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config
