@@ -1,14 +1,17 @@
-var mysql = require('mysql');
+var mysql = require("mysql");
 
 var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "1256",
+    host: "database-1.cxqar33fjxpj.ap-southeast-1.rds.amazonaws.com",
+    user: "engimabp",
+    password: "Bankpro234",
     database: "wstransaksi"
 });
 
-con.connect(function (err){
-    if(err) throw err;
+con.connect(function (err) {
+    "use strict";
+    if (err) {
+        throw err;
+    }
 });
 
 module.exports = con;
