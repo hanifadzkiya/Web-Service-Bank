@@ -7,7 +7,7 @@ var response = require("../util/response");
 var connection = require("../util/dbconnection");
 
 /*
-Router to get transaction details given by transaction id
+Router to get transaction details 
 */
 router.get("/", function(req, res) {
     if(req.query.id){
@@ -30,6 +30,8 @@ router.get("/", function(req, res) {
                     response.ok(rows,"Success Get Transaction with id_user = " + id_user,res);
                 }
             });
+    } else {
+        res.send("Give parameter")
     }
 });
 
