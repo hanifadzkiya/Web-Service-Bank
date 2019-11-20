@@ -36,7 +36,7 @@ router.get("/", function(req, res) {
 });
 
 
-router.put("/", function(req,res) {
+router.post("/", function(req,res) {
     "use strict";
     var id_user = req.body.id_user;
     var nomor_va_tujuan = req.body.nomor_va_tujuan;
@@ -51,15 +51,31 @@ router.put("/", function(req,res) {
         if (error) {
             console.log(error);
         } else {
-            connection.query("select count(*) as num from transaksi;", function (error, rows) {
+            connection.query("SELECT id FROM transaksi ORDER BY id DESC LIMIT 1;", function (error, rows) {
                 if (error) {
                     console.log(error);
                 } else {
-                    response.ok(rows, "Success, new transaction with id  : "+rows[0].num+" created.", res);
+                    response.ok(rows, "Success, new transaction with id  : "+rows[0].id+" created.", res);
                 }
             });
         }
     });
+});
+
+router.put("/", function (req, res) {
+    "use strict";
+    var id = req.body.id;
+    var status = req.body.status;
+
+    connection.query("UPDATE transaksi SET status = '" + status + "' WHERE id = ?",
+        [id],
+        function (error, rows) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok(rows, "Success! Transaction status with id " + id + " changed to " + status, res);
+            }
+        });
 });
 
 
