@@ -16,11 +16,7 @@ eslint:
     # Install eslint
     - |
       npm install eslint \
-      eslint-config-airbnb \
-      eslint-config-prettier \
-      eslint-plugin-flowtype \
-      eslint-plugin-import \
-      eslint-plugin-prettier
+      eslint-config-airbnb
     # Run eslint
     - node_modules/eslint/bin/eslint.js .
 
