@@ -76,6 +76,16 @@ router.put("/", function (req, res) {
                 response.ok(rows, "Success! Transaction status with id " + id + " changed to " + status, res);
             }
         });
+
+    // Cek seluruh tabel
+    connection.query("UPDATE transaksi SET status = 'Cancelled' WHERE ((TIME_TO_SEC(NOW()) - TIME_TO_SEC(time_created)) > 120) AND status = 'Pending';",
+        function (error, rows) {
+            if (error) {
+                console.log(error);
+            } else {
+                response.ok(rows, "Success! Transaction status with id " + id + " changed to " + status, res);
+            }
+        });
 });
 
 
