@@ -31,7 +31,7 @@ router.get("/", function(req, res) {
                 }
             });
     } else {
-        res.send("Give parameter")
+        res.send("Give parameter");
     }
 });
 
