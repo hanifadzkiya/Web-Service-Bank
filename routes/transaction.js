@@ -7,6 +7,22 @@ var response = require("../util/response");
 var connection = require("../util/dbconnection");
 
 /*
+    Update all transactin status
+ */
+
+function updateAllTransactionStatus(){
+    // Cek seluruh tabel
+    connection.query("UPDATE transaksi SET status = 'Cancelled' WHERE ((TIME_TO_SEC(NOW()) - TIME_TO_SEC(time_created)) > 120) AND status = 'Pending';",
+        function (error) {
+            if (error) {
+                console.log(error);
+            } else {
+                console.log("OK");
+            }
+        });
+}
+
+/*
 Router to get transaction details 
 */
 router.get("/", function(req, res) {
@@ -33,6 +49,8 @@ router.get("/", function(req, res) {
     } else {
         res.send("Give parameter");
     }
+
+    updateAllTransactionStatus();
 });
 
 
@@ -60,6 +78,8 @@ router.post("/", function(req,res) {
             });
         }
     });
+
+    updateAllTransactionStatus();
 });
 
 router.put("/", function (req, res) {
@@ -77,15 +97,7 @@ router.put("/", function (req, res) {
             }
         });
 
-    // Cek seluruh tabel
-    connection.query("UPDATE transaksi SET status = 'Cancelled' WHERE ((TIME_TO_SEC(NOW()) - TIME_TO_SEC(time_created)) > 120) AND status = 'Pending';",
-        function (error, rows) {
-            if (error) {
-                console.log(error);
-            } else {
-                response.ok(rows, "Success! Transaction status with id " + id + " changed to " + status, res);
-            }
-        });
+    updateAllTransactionStatus();
 });
 
 
