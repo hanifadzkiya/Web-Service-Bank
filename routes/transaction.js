@@ -100,8 +100,8 @@ router.put("/", function (req, res) {
     var id = req.body.id;
     var status = req.body.status;
 
-    connection.query("UPDATE transaksi SET status = '" + status + "' WHERE id = ?",
-        [id],
+    if(status == 'Success'){
+        connection.query("UPDATE transaksi SET status = '" + status + "' WHERE id = "+ id + " AND status = 'Pending'",
         function (error, rows) {
             if (error) {
                 console.log(error);
@@ -109,7 +109,17 @@ router.put("/", function (req, res) {
                 response.ok(rows, "Success! Transaction status with id " + id + " changed to " + status, res);
             }
         });
-
+    } else {
+        connection.query("UPDATE transaksi SET status = '" + status + "' WHERE id = ?",
+            [id],
+            function (error, rows) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    response.ok(rows, "Success! Transaction status with id " + id + " changed to " + status, res);
+                }
+            });
+    }
     updateAllTransactionStatus();
 });
 
