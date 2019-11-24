@@ -37,7 +37,8 @@ pm2 status
 
 #install npm packages
 echo "Running npm install"
-npm install
+npm install --production
 
 #Restart the node server
+sudo su
 pm2 start bin/www
