@@ -1,8 +1,9 @@
 # WS-Transaksi
 
-Web Service untuk menangani transaksi.
+Pembagian tugas:
 
-1. Design Basis Data : 13517042
-2. Menambah Transaksi Baru : 13517042
-3. Mengubah Status Transaksi : 13517105
-4. Mengembalikan Data Transaksi User Engima : 13517120
+1. CI/CD : 13517105
+2. Setup Environtment : 13517105
+3. Linting : 13517042, 13517105, 13517120
+
+URL Deployment: http://52.220.86.67:3000/
