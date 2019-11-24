@@ -38,12 +38,25 @@ router.get("/", function(req, res) {
             });
     } else if(req.query.id_user){
         let id_user = req.query.id_user;
-        connection.query("SELECT * from transaksi WHERE id_user = " + id_user, 
+        connection.query("SELECT * from transaksi WHERE id_user = " + id_user + " ORDER BY time_created DESC", 
             function (error, rows){
                 if(error){
                     console.log(error);
                 } else {
                     response.ok(rows,"Success Get Transaction with id_user = " + id_user,res);
+                }
+            });
+    } else if(req.query.id_movie && req.query.id_jadwal){
+        let id_movie = req.query.id_movie;
+        let id_jadwal = req.query.id_jadwal;
+        // YEAR(Date) = 2011 AND MONTH(Date) = 5;
+        let sql = "SELECT * from transaksi WHERE id_movie = " + id_movie + " AND id_jadwal = '" + id_jadwal + "' AND status != 'Cancelled' ORDER BY nomor_seat ASC";
+        connection.query(sql, 
+            function (error, rows){
+                if(error){
+                    console.log(error);
+                } else {
+                    response.ok(rows,"Success Get Transaction with id_movie = " + id_movie,res);
                 }
             });
     } else {
