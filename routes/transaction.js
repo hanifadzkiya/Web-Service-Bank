@@ -100,7 +100,6 @@ router.put("/", function (req, res) {
     var id = req.body.id;
     var status = req.body.status;
 
-<<<<<<< HEAD
     if(status == 'Success'){
         connection.query("UPDATE transaksi SET status = '" + status + "' WHERE nomor_va_tujuan = "+ id + " AND status = 'Pending'",
         function (error, rows) {
