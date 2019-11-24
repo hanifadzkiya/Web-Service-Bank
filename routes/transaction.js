@@ -60,7 +60,7 @@ router.get("/", function(req, res) {
                 }
             });
     } else {
-        res.send("Give parameter");
+        res.send(req.query);
     }
 
     updateAllTransactionStatus();
