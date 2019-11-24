@@ -100,15 +100,15 @@ router.put("/", function (req, res) {
     var id = req.body.id;
     var status = req.body.status;
 
-    if(status == 'Success'){
+    if(status == "Success"){
         connection.query("UPDATE transaksi SET status = '" + status + "' WHERE nomor_va_tujuan = "+ id + " AND status = 'Pending'",
-        function (error, rows) {
-            if (error) {
-                console.log(error);
-            } else {
-                response.ok(rows, "Success! Transaction status with id " + id + " changed to " + status, res);
-            }
-        });
+            function (error, rows) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    response.ok(rows, "Success! Transaction status with id " + id + " changed to " + status, res);
+                }
+            });
     } else {
         connection.query("UPDATE transaksi SET status = '" + status + "' WHERE id = ?",
             [id],
