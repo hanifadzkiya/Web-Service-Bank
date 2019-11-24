@@ -101,7 +101,7 @@ router.put("/", function (req, res) {
     var status = req.body.status;
 
     if(status == 'Success'){
-        connection.query("UPDATE transaksi SET status = '" + status + "' WHERE id = "+ id + " AND status = 'Pending'",
+        connection.query("UPDATE transaksi SET status = '" + status + "' WHERE nomor_va_tujuan = "+ id + " AND status = 'Pending'",
         function (error, rows) {
             if (error) {
                 console.log(error);
