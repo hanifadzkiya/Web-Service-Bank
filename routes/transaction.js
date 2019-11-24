@@ -12,7 +12,7 @@ var connection = require("../util/dbconnection");
 
 function updateAllTransactionStatus(){
     // Cek seluruh tabel
-    connection.query("UPDATE transaksi SET status = 'Cancelled' WHERE ((TIME_TO_SEC(NOW()) - TIME_TO_SEC(time_created)) > 120) AND status = 'Pending';",
+    connection.query("UPDATE transaksi SET status = 'Cancelled' WHERE (TIME_TO_SEC(TIMEDIFF(NOW(), time_created)) > 120) AND status = 'Pending';",
         function (error) {
             if (error) {
                 console.log(error);
